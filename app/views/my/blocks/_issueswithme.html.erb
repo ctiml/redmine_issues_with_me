@@ -1,8 +1,9 @@
 <%
   # FIXME: logic in view
   user_id = User.current.id
-  issue_ids = Journal.select('journalized_id').where(user_id: user_id).where(journalized_type: "Issue").collect{|j|j.journalized_id}.uniq
-  issues = Issue.find(issue_ids).reverse
+  issue_ids = Journal.select('journalized_id').where('user_id = ?', user_id).where('journalized_type = ?', "Issue").collect{|j|j.journalized_id}.uniq
+  issues = Issue.find(issue_ids) | Issue.where('assigned_to_id = ?', user_id).collect{|i| i }
+  issues.reverse!
 %>
 <h3><%=l(:label_issues_with_me)%> (<%= issues.count %>)</h3>
 
