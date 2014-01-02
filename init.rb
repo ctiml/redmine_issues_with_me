@@ -8,4 +8,4 @@ Redmine::Plugin.register :issues_with_me do
 end
 
 Redmine::Views::MyPage::Block.additional_blocks.merge!({'issueswithme'=>:label_issues_with_me})
-require File.expand_path(File.dirname(__FILE__) + '/app/helpers/issues_with_me_helper')
+#require File.expand_path(File.dirname(__FILE__) + '/app/helpers/issues_with_me_helper')
