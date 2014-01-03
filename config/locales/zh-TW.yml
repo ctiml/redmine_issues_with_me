@@ -1,4 +1,4 @@
 # zh_TW
 zh-TW:
   label_issues_with_me: "與我有關的問題"
-  label_issues_with: "與 %{user} 有關的問題"
+  label_assigned_to: "分派給 %{user} 的問題"

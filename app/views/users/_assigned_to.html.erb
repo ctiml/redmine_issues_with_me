@@ -1,0 +1,10 @@
+<%
+  # FIXME: logic in view
+  user_id = params[:id]
+  user = User.find(user_id)
+  issues = Issue.visible.open.where('assigned_to_id IN (?)', ([user.id] + user.group_ids))
+  issues.reverse!
+%>
+<h3><%=l(:label_assigned_to, user: user.name)%> (<%= issues.count %>)</h3>
+
+<%= render :partial => 'issues/list_simple', :locals => { :issues => issues } %>
