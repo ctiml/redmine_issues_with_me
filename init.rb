@@ -9,3 +9,5 @@ end
 
 Redmine::Views::MyPage::Block.additional_blocks.merge!({'issueswithme'=>:label_issues_with_me})
 #require File.expand_path(File.dirname(__FILE__) + '/app/helpers/issues_with_me_helper')
+
+require 'hooks/users_issues_with_hook'
